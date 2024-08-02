@@ -16,13 +16,13 @@
       </p>
       
       <!-- Carosello del negozio -->
-      <CarouselSection title="Il Nostro Salone" :items="storeItems" />
+      <CarouselComponent title="Il Nostro Salone" :items="storeItems" />
       
       <!-- Carosello tagli maschio -->
-      <CarouselSection title="Tagli Maschio" :items="maleCuts" />
+      <CarouselComponent title="Tagli Maschio" :items="maleCuts" />
       
       <!-- Carosello tagli donna -->
-      <CarouselSection title="Tagli Donna" :items="femaleCuts" />
+      <CarouselComponent title="Tagli Donna" :items="femaleCuts" />
     </section>
 
     <!-- Sezione orari di apertura -->
@@ -60,33 +60,11 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue3-carousel';
-import 'vue3-carousel/dist/carousel.css';
-
-const CarouselSection = {
-  props: {
-    title: String,
-    items: Array
-  },
-  template: `
-    <div class="carousel-container">
-      <h2>{{ title }}</h2>
-      <carousel :perPage="1" navigation pagination :loop="true" class="carousel">
-        <slide v-for="(item, index) in items" :key="index">
-          <img :src="item.src" :alt="item.alt" class="carousel-image" />
-        </slide>
-      </carousel>
-    </div>
-  `,
-  components: {
-    Carousel,
-    Slide
-  }
-};
+import CarouselComponent from '@/components/CarouselComponent.vue';
 
 export default {
   components: {
-    CarouselSection
+    CarouselComponent
   },
   data() {
     return {

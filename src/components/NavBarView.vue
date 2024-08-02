@@ -50,7 +50,16 @@ export default {
   padding: 1rem 2rem;
   background-color: #4E342E; /* Marrone Scuro per lo sfondo della nav */
   color: #F5F5DC; /* Beige per il testo */
-  position: relative;
+  position: fixed; /* Fissa la navbar in cima alla pagina */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Assicurati che la navbar sia sopra gli altri contenuti */
+}
+
+/* Aggiungi uno spazio per il contenuto sotto la navbar */
+body {
+  margin-top: 4rem; /* Altezza della navbar per evitare che il contenuto sia nascosto sotto di essa */
 }
 
 /* Navbar logo */
@@ -105,8 +114,6 @@ export default {
 .navbar-item a:hover {
   color: #800020; /* Rosso Borgogna per l'hover dei link */
 }
-
-
 
 @media (max-width: 1024px) {
   .navbar {
