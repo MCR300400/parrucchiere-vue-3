@@ -1,6 +1,9 @@
 <template>
   <header>
     <nav class="navbar">
+      <div class="navbar-logo">
+        <img src="../assets/logo.png" alt="Logo" />
+      </div>
       <div class="navbar-brand">
         <span @click="toggleMenu" class="navbar-toggle">BARBER CLUB 150-152</span>
       </div>
@@ -50,6 +53,17 @@ export default {
   position: relative;
 }
 
+/* Navbar logo */
+.navbar-logo {
+  margin-right: 2rem; /* Spazio tra il logo e il testo del brand */
+}
+
+.navbar-logo img {
+  height: 100%; /* Imposta l'altezza dell'immagine al 100% dell'altezza della navbar */
+  width: auto; /* Mantieni le proporzioni dell'immagine */
+  max-height: 20px; /* Imposta un'altezza massima per il logo */
+}
+
 /* Brand name */
 .navbar-brand {
   font-size: 1.5rem;
@@ -60,10 +74,8 @@ export default {
 
 /* Navbar toggle button */
 .navbar-toggle {
-  display: none; /* Hide toggle button by default */
   font-size: 1.5rem;
   background: none;
-  border: 2px solid #F5F5DC; /* Beige per il bordo del toggle */
   color: #F5F5DC; /* Beige per il testo del toggle */
   cursor: pointer;
   padding: 0.5rem;
@@ -94,14 +106,19 @@ export default {
   color: #800020; /* Rosso Borgogna per l'hover dei link */
 }
 
-/* Responsive Design */
+
+
 @media (max-width: 1024px) {
   .navbar {
     padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .navbar-brand {
-    font-size: 1.3rem;
+  .navbar-logo {
+    margin-right: 0; /* Resetta il margine del logo in modalità mobile */
+    margin-bottom: 1rem; /* Distanza tra il logo e il menu su dispositivi mobili */
+    display: none;
   }
 
   .navbar-menu {
@@ -141,6 +158,11 @@ export default {
 @media (min-width: 1025px) {
   .navbar-toggle {
     display: none; /* Hide toggle button on larger devices */
+  }
+
+  .navbar-menu {
+    display: flex; /* Ensure the menu is displayed on larger screens */
+    margin-left: auto; /* Push the menu to the right */
   }
 }
 </style>
